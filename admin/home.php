@@ -15,6 +15,7 @@ if(isset($_POST['but_logout'])){
 <!DOCTYPE html>
 <html>
 <head>
+<title>Curent Support Tickets</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -91,7 +92,7 @@ if ($result = $mysqli->query($query)) {
 
 
 
-        echo '<br> <a href="/admin/viewticket.php?id='.$field1name.'">'.$field2name.'</a> <br/>';
+        echo '<center><br> <a href="/admin/viewticket.php?id='.$field1name.'">'.$field2name.'</a> <br/> <center/>';
 
     }
 

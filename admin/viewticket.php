@@ -17,6 +17,12 @@ if(isset($_POST['but_logout'])){
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
+
+
+echo '<title>View Ticket: ' .$_GET["id"].  '</title>';
+
+?>
 <style>
 body {
   margin: 0;
@@ -50,6 +56,19 @@ body {
   margin: auto;
 
 }
+
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #ff0000;
+        border-radius: 6px;
+        outline: none;
+      }
+
 </style>
 </head>
 <body>
@@ -93,13 +112,23 @@ if ($result = $mysqli->query($query)) {
         $field4name = $row["message"];
  
 
-        echo '<br>  Ticket id: '.$field1name.'<br/>';
+        echo '<center><br>  Ticket id: '.$field1name.'<br/><center/>';
         echo '<br> User: '.$field2name.'<br/>';
         echo '<br> Issue: '.$field3name.'<br/>';
         echo '<br> Message: '.$field4name.'<br/>';
-        
+        echo '<br> <br/>';
     }
 
 /*freeresultset*/
 $result->free();
 }
+?>
+
+
+<?php
+echo '<a class="button" href="/admin/compleate.php?id=' . htmlspecialchars($_GET["id"]) . '">Close Ticket</a>';
+?>
+    
+
+  </body>
+</html>

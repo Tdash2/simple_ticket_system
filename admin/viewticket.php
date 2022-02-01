@@ -12,16 +12,12 @@ if(isset($_POST['but_logout'])){
     header('Location: index.php');
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
-
-
 echo '<title>View Ticket: ' .$_GET["id"].  '</title>';
-
 ?>
 <style>
 body {
@@ -84,26 +80,13 @@ body {
 <div style="padding-left:16px">
 </div>
 
-</body>
-</html>
-
-
-
-<html>
-<body>
 <?php 
-$username = "sammy"; 
-$password = "password"; 
-$database = "test"; 
-$mysqli = new mysqli("localhost", $username, $password, $database); 
-
-
 
 $query = "SELECT * FROM Ticket WHERE id = '".$_GET["id"]."'";
 ?>
 <b> <center style="padding: 15pt;"  >Ticket info: </center> </b> <br> <br>
 <?php 
-if ($result = $mysqli->query($query)) {
+if ($result = $con->query($query)) {
 
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["id"];
@@ -111,8 +94,7 @@ if ($result = $mysqli->query($query)) {
         $field3name = $row["issue"];
         $field4name = $row["message"];
  
-
-        echo '<center><br>  Ticket id: '.$field1name.'<br/><center/>';
+        echo '<center><br>  Ticket Number: '.$field1name.'<br/><center/>';
         echo '<br> User: '.$field2name.'<br/>';
         echo '<br> Issue: '.$field3name.'<br/>';
         echo '<br> Message: '.$field4name.'<br/>';
@@ -122,13 +104,8 @@ if ($result = $mysqli->query($query)) {
 /*freeresultset*/
 $result->free();
 }
-?>
 
-
-<?php
 echo '<a class="button" href="/admin/compleate.php?id=' . htmlspecialchars($_GET["id"]) . '">Close Ticket</a>';
 ?>
-    
-
-  </body>
+</body>
 </html>

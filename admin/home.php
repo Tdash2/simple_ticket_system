@@ -22,12 +22,10 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .topnav {
   overflow: hidden;
   background-color: #333;
 }
-
 .topnav a {
   float: left;
   color: #f2f2f2;
@@ -36,66 +34,44 @@ body {
   text-decoration: none;
   font-size: 17px;
 }
-
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
-
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
 }
 .center {
   margin: auto;
-
 }
 </style>
 </head>
 <body>
-
 <div class="topnav">
   <a class="active" href="home.php">Home</a>
   <form method='post' action="">
      <input style="background: #4c35ae; border: transparent;border-radius: 0pt;position: relative;left: 9pt;color: white;font-size: 15pt;height: 36pt;" type="submit" value="Logout" name="but_logout">
   </form>
-
 </div>
-
 <div style="padding-left:16px">
 </div>
-
-</body>
-</html>
-
-
-
-<html>
-<body>
 <?php 
-$username = "sammy"; 
-$password = "password"; 
-$database = "test"; 
-$mysqli = new mysqli("localhost", $username, $password, $database); 
-
-
-
 $query = "SELECT * FROM Ticket";
 ?>
 <b> <center style="padding: 15pt;"  >Curent Open Tickets: </center> </b> <br> <br>
 <?php
-if ($result = $mysqli->query($query)) {
+if ($result = $con->query($query)) {
 
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["id"];
         $field2name = $row["issue"];
 
-
-
         echo '<center><br> <a href="/admin/viewticket.php?id='.$field1name.'">'.$field2name.'</a> <br/> <center/>';
-
     }
-
 /*freeresultset*/
 $result->free();
 }
+?>
+</body>
+</html>

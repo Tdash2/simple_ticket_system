@@ -36,7 +36,7 @@ if(isset($_POST['but_submit'])){
         <div class="container">
             <form method="post" action="">
                 <div id="div_login">
-                    <h1>Login</h1>
+                    <h1>Please Login To Continue</h1>
                     <div>
                         <input type="text" class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
                     </div>
@@ -44,7 +44,7 @@ if(isset($_POST['but_submit'])){
                         <input type="password" class="textbox" id="txt_uname" name="txt_pwd" placeholder="Password"/>
                     </div>
                     <div>
-                        <input type="submit" value="Submit" name="but_submit" id="but_submit" />
+                      <center>  <input type="submit" value="Submit" name="but_submit" id="but_submit" /> <center/>
                     </div>
                 </div>
             </form>

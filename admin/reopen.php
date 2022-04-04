@@ -13,7 +13,7 @@ if(isset($_POST['but_logout'])){
 }
 
 // sql to delete a record
-$sql = "UPDATE Ticket SET status='0' WHERE id='".$_GET["id"]."'";
+$sql = "UPDATE Ticket SET status='1' WHERE id='".$_GET["id"]."'";
 
 //$sql = "DELETE FROM Ticket WHERE id='".$_GET["id"]."'";
 

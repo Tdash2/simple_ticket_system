@@ -71,9 +71,9 @@ body {
 
 <div class="topnav">
   <a class="active" href="home.php">Home</a>
+  <a class="active" style="position: relative;left: 9pt; " href="closed.php">Closed</a>
   <form method='post' action="">
-     <input style="background: #4c35ae; border: transparent;border-radius: 0pt;position: relative;left: 9pt;color: white;font-size: 15pt;height: 36pt;" type="submit" value="Logout" name="but_logout">
-  </form>
+     <input style="background: #4c35ae; border: transparent;border-radius: 0pt;position: relative;left: 18pt;color: white;font-size: 15pt;height: 36pt;" type="submit" value="Logout" name="but_logout">
 
 </div>
 
@@ -84,7 +84,7 @@ body {
 
 $query = "SELECT * FROM Ticket WHERE id = '".$_GET["id"]."'";
 ?>
-<b> <center style="padding: 15pt;"  >Ticket info: </center> </b> <br> <br>
+<b> <center style="padding: 10pt;   font-size: 30px;"  >Ticket Information: </center> </b> 
 <?php 
 if ($result = $con->query($query)) {
 
@@ -93,8 +93,10 @@ if ($result = $con->query($query)) {
         $field2name = $row["name"];
         $field3name = $row["issue"];
         $field4name = $row["message"];
+        $field5name = $row["IP"];
  
         echo '<center><br>  Ticket Number: '.$field1name.'<br/><center/>';
+        echo '<br> Computer IP: '.$field5name.'<br/>';
         echo '<br> User: '.$field2name.'<br/>';
         echo '<br> Issue: '.$field3name.'<br/>';
         echo '<br> Message: '.$field4name.'<br/>';

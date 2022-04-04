@@ -59,14 +59,11 @@ body {
   <a class="active" style="position: relative;left: 9pt; " href="closed.php">Closed</a>
   <form method='post' action="">
      <input style="background: #4c35ae; border: transparent;border-radius: 0pt;position: relative;left: 18pt;color: white;font-size: 15pt;height: 36pt;" type="submit" value="Logout" name="but_logout">
-  </form>
-  
-  
 </div>
 <div style="padding-left:16px">
 </div>
 <?php 
-$query = "SELECT * FROM `Ticket` where status = \"1\"";
+$query = "SELECT * FROM `Ticket` where status = \"0\"";
 ?>
 <b> <center style="padding: 15pt;"  >Curent Open Tickets: </center> </b> <br> <br>
 <?php
@@ -76,7 +73,7 @@ if ($result = $con->query($query)) {
         $field1name = $row["id"];
         $field2name = $row["issue"];
 
-        echo '<center><br> <a href="/admin/viewticket.php?id='.$field1name.'">'.$field2name.'</a> <br/> <center/>';
+        echo '<center><br> <a href="/admin/viewclosedticket.php?id='.$field1name.'">'.$field2name.'</a> <br/> <center/>';
         
 
 
